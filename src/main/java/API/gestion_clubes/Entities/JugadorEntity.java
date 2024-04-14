@@ -1,6 +1,8 @@
 package API.gestion_clubes.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,8 +26,8 @@ public class JugadorEntity {
     private String perfilPierna;
     private String posicion;
     private String dorsal;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "club", nullable = true)
+    @JsonIgnoreProperties("jugadores")
     private ClubEntity club;
 }

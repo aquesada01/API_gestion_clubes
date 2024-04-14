@@ -62,4 +62,15 @@ public class ClubController {
     public ResponseEntity<?> deleteById(@RequestParam Long id){
         return clubService.deleteById(id);
     }
+
+    /**
+     * Busca todos los clubes.
+     *
+     * @return ResponseEntity 200 cuyo body contiene la lista de clubes.
+     * @exception Exception Si se presenta error al ejecutar la consulta.
+     */
+    @GetMapping("/todos")
+    public ResponseEntity<?> finAll(){
+        return clubService.findAll();
+    }
 }

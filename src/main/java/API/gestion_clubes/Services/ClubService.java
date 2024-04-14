@@ -87,4 +87,20 @@ public class ClubService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Se ha presentado un error: \n" +e.getMessage());
         }
     }
+
+    /**
+     * Busca todos los clubes.
+     *
+     * @return ResponseEntity 200 cuyo body contiene la lista de clubes.
+     * @exception Exception Si se presenta error al ejecutar la consulta.
+     */
+    public ResponseEntity<?> findAll(){
+        try {
+            return ResponseEntity
+                    .ok(clubRepo.findAll());
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Se ha presentado un error al obtener la lista de clubes. \nError:"+e.getMessage());
+        }
+    }
 }
